@@ -1,0 +1,42 @@
+﻿@model FactoryProduction.Models.Products
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitOfProduct)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitOfProduct)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Factory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Factory.FactoriesId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.ProductTypesId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProductsId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

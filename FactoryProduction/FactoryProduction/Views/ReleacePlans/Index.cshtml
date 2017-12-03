@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@using FactoryProduction.ViewModels;
+@using FactoryProduction.Models
+@model IndexViewModel
+@model IEnumerable<FactoryProduction.Models.ReleacePlan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.OutputPlan)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutputPlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductsId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReleacePlanId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReleacePlanId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReleacePlanId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

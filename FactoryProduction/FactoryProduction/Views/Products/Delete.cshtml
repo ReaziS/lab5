@@ -1,0 +1,45 @@
+﻿@model FactoryProduction.Models.Products
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitOfProduct)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitOfProduct)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Factory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Factory.FactoriesId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.ProductTypesId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ProductsId" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
